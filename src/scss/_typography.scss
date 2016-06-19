@@ -1,0 +1,8 @@
+// Make fonts more beautiful on webkit browsers
+* {
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-weight: $body-font-weight;
+}
