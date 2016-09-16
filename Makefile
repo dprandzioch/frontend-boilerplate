@@ -28,3 +28,6 @@ dist:
 
 console:
 	docker run -it --rm -v ${PWD}:/var/www/ -w /var/www davd/frontend-dev /bin/bash
+
+serve:
+	php -S localhost:8080
