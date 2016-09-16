@@ -5,14 +5,26 @@ clean:
 	rm -rf vendor
 	rm -rf public/fonts
 
-install-deps:
+raw_install_deps:
 	npm install
-	bower install
+	bower install --allow-root
 	cp -R vendor/lato/font public/fonts
 
-watch:
+raw_watch:
 	grunt dev watch
 
-dist:
+raw_dist:
 	grunt dist
 	rm public/css/*.map
+
+install_deps:
+	docker run -it --rm -v ${PWD}:/var/www/ -w /var/www davd/frontend-dev make raw_install_deps
+
+watch:
+	docker run -it --rm -v ${PWD}:/var/www/ -w /var/www davd/frontend-dev make raw_watch
+
+dist:
+	docker run -it --rm -v ${PWD}:/var/www/ -w /var/www davd/frontend-dev make raw_dist
+
+console:
+	docker run -it --rm -v ${PWD}:/var/www/ -w /var/www davd/frontend-dev /bin/bash
