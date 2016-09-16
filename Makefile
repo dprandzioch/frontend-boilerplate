@@ -31,3 +31,5 @@ console:
 
 serve:
 	php -S localhost:8080
+
+install: clean install_deps
