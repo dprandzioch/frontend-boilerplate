@@ -30,6 +30,6 @@ console:
 	docker run -it --rm -v ${PWD}:/var/www/ -w /var/www davd/frontend-dev /bin/bash
 
 serve:
-	php -S localhost:8080
+	cd public && php -S localhost:8080
 
 install: clean install_deps
