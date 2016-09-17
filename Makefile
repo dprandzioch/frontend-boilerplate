@@ -32,4 +32,7 @@ console:
 serve:
 	cd public && php -S localhost:8080
 
-install: clean install_deps
+build_docker_image:
+	cd docker-dev/ && make image
+
+install: build_docker_image clean install_deps
